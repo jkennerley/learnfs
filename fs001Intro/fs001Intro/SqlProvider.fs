@@ -4,7 +4,7 @@
 
 // ******************
 // reference the type provider dll
-#r """C:\Users\John\jkcentrik\learnfs\fs001Intro\packages\SQLProvider.1.0.43\lib\FSharp.Data.SQLProvider.dll"""
+#r """..\packages\SQLProvider.1.0.43\lib\FSharp.Data.SQLProvider.dll"""
 open FSharp.Data.Sql
 // .................
 

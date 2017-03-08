@@ -1,5 +1,5 @@
 ﻿// ******************
-#r """C:\Users\John\jkcentrik\learnfs\fs001Intro\packages\FSharp.Data.2.3.2\lib\net40\FSharp.Data.dll"""
+#r """..\packages\FSharp.Data.2.3.2\lib\net40\FSharp.Data.dll"""
 #r "System.Xml.Linq.dll"
 open FSharp.Data
 // .................
@@ -19,9 +19,9 @@ open FSharp.Data
 // ******************
 // demo canadia
 // a type; ...
-type SOR96433Type =   XmlProvider<"""C:\Users\John\jkcentrik\learnfs\fs001Intro\fs001Intro\XmlSourceFiles\SOR-96-433.xml""">
+type SOR96433Type =   XmlProvider<""".\XmlSourceFiles\SOR-96-433.xml""">
 // instance
-let sor96433 = SOR96433Type.Load("""C:\Users\John\jkcentrik\learnfs\fs001Intro\fs001Intro\XmlSourceFiles\SOR-96-433.xml""")
+let sor96433 = SOR96433Type.Load(""".\XmlSourceFiles\SOR-96-433.xml""")
 // .................
 
 
