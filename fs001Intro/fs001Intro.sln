@@ -5,6 +5,14 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fs001Intro", "fs001Intro\fs001Intro.fsproj", "{94EF05E5-A480-4670-A70F-1659D07F6EDF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Soloution", "Soloution", "{F6676786-12C6-4864-996C-806E4C37C5E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlSourceFiles", "XmlSourceFiles", "{3B22006E-ED99-4DBF-A2C8-C795E5C14CA1}"
+	ProjectSection(SolutionItems) = preProject
+		fs001Intro\XmlSourceFiles\SOR-96-433 - Copy.xml = fs001Intro\XmlSourceFiles\SOR-96-433 - Copy.xml
+		fs001Intro\XmlSourceFiles\SOR-96-433.xml = fs001Intro\XmlSourceFiles\SOR-96-433.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +26,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B22006E-ED99-4DBF-A2C8-C795E5C14CA1} = {F6676786-12C6-4864-996C-806E4C37C5E1}
 	EndGlobalSection
 EndGlobal
