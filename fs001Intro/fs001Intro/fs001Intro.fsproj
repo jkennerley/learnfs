@@ -55,11 +55,12 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
-    <Compile Include="Widget.fs" />
-    <Compile Include="Fs001 UnitTest.fs" />
     <Compile Include="Fs002 Quicksort UnitTest.fs" />
+    <Compile Include="Fs001 UnitTest.fs" />
+    <Compile Include="xml TypeProvider Canonical Demo.fs" />
+    <Compile Include="Sql Provider Demo.fs" />
     <None Include="xmlTypeProvider.fsx" />
-    <Compile Include="SqlProvider.fs" />
+    <None Include="All Together Now.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">
