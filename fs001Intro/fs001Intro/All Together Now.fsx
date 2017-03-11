@@ -11,8 +11,6 @@ let decimalOptionToString (x:decimal option) =
     match x with
         | Some(y) -> y.ToString()
         | None -> ""
-
-
 // .................
 
 
@@ -31,6 +29,7 @@ let decimalOptionToString (x:decimal option) =
 open FSharp.Data.Sql
 // .................
 
+
 // ******************
 // db model types 
 let [<Literal>] dbVendor = Common.DatabaseProviderTypes.MSSQLSERVER
@@ -46,23 +45,14 @@ type sql =
     >
 // .................
 
+
 // ******************
 // db ctx instance
 let ctx = sql.GetDataContext()
 //ctx.Dbo.RegulationSection // should show in isense
 //ctx.Dbo.BodyHeader// should show in isense
 // ctx.Dbo.BodySection
-
-
 // .................
-
-
-// .................
-// .................
-// .................
-
-
-
 
 
 // ******************
@@ -97,8 +87,8 @@ type DomBodySection =  {
     Label: string              
     Text : string              
 }                              
-
 // .................
+
 
 // ******************
 #r """..\packages\FSharp.Data.2.3.2\lib\net40\FSharp.Data.dll"""
@@ -137,7 +127,6 @@ let labelOptionToString (x:SOR96433.Label option ) : string =
     match x with
         | Some(y) -> if y.String.IsSome then y.String.Value else "" 
         | None    -> "[NONE]"
-
 
 let textToString (x:SOR96433.Text) : string =
     let v = x.Value
@@ -181,11 +170,10 @@ let titleTextOptionToCode(titleText:SOR96433.TitleText option ) : string =
 //.................
 
 
-
-
 // ******************
 // DBRepo :: { DomainTypes -> Repo >  db }
 // .................
+
 
 // ******************
 // insert domain -> db
@@ -201,6 +189,7 @@ let titleTextOptionToCode(titleText:SOR96433.TitleText option ) : string =
 //    ctx.SubmitUpdates()
 //
 //    ()
+
 
 // insert record & SaveChanges
 let insertBodyHeader ( bodyHeader:DomBodyHeader ) = 
@@ -219,7 +208,7 @@ let insertBodyHeader ( bodyHeader:DomBodyHeader ) =
     ()
 
 
-let insertBodyHeader ( be:DomBodySection) = 
+let insertBodySection ( be:DomBodySection) = 
     let ctxEntity = ctx.Dbo.BodySection
 
     let row = ctxEntity.Create()
@@ -230,12 +219,7 @@ let insertBodyHeader ( be:DomBodySection) =
     ctx.SubmitUpdates()
     ()
 
-
-
-
 // .................
-
-
 
 
 // ******************
@@ -266,12 +250,13 @@ let toDomainBodySection(x:SOR96433.Section) : DomBodySection =
         Label = labelToString(x.Label)
         Text  = textOptionToString(x.Text)
     }
+// .................
 
 
 // ******************
 
 // body headings
-let bodyHeadings = sor96433.Body.Headings
+//let bodyHeadings = sor96433.Body.Headings
 
 // # 1479
 // bodyHeadings |> Seq.length
@@ -286,7 +271,7 @@ let bodyHeadings = sor96433.Body.Headings
 
 // map sor Body>Headings -> domain bodyHeadings
 let domainBodyHeadings = 
-    bodyHeadings 
+    sor96433.Body.Headings
     |> Seq.map toDomainBodyHeader
 
 // dbg print
@@ -294,10 +279,10 @@ let domainBodyHeadings =
 // insert body headings to db 
 // domainBodyHeadings |> Seq.iter (  fun x -> insertBodyHeader x )
 domainBodyHeadings |> Seq.iter insertBodyHeader 
-
 //.................
 
 
+// ******************
 
 // map sor Body>Headings -> domain bodyHeadings
 let domainBodySections = 
@@ -305,7 +290,7 @@ let domainBodySections =
     |> Seq.map toDomainBodySection
 
 domainBodySections |> Seq.iter insertBodySection
-
+//.................
 
 
 // ******************
@@ -315,23 +300,7 @@ domainBodySections |> Seq.iter insertBodySection
 // 
 // //## 1328
 // bodySections  |> Seq.length
-
 // .................
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ******************
@@ -348,19 +317,5 @@ domainBodySections |> Seq.iter insertBodySection
 // // print
 // sections |> Array.iter (fun x  ->  printfn  "%A"  x )
 // sections |> Array.iter (fun x  ->  insertRegulationSection   x )
-
 //.................
-
-
-
-
-
-
-
-
-
-
-
-
-
 
